@@ -44,24 +44,34 @@ namespace ariel
             {
                 if(node != nullptr)
                 {
+                    while(node->left != nullptr || node->right !=nullptr)
+                    {
+                        
+                        if(node->left==nullptr && node->right!=nullptr)
+                        {
+                            delete_nodes(node->right);
+                            node->right=nullptr;
+                        }
+                        else if (node->left!=nullptr && node->right==nullptr)
+                        {
+                            delete_nodes(node->left);
+                            node->left=nullptr;
+                        }
+                        else
+                        { 
+                            delete_nodes(node->left);
+                            node->left=nullptr;
+                            delete_nodes(node->right);
+                            node->right=nullptr;
+                        }
+                    }
                     if(node->left == nullptr && node->right ==nullptr)
-                    {
-                        //node->data=da;
-                        delete(node);
-                    }
-                    else if(node->left==nullptr && node->right!=nullptr)
-                    {
-                        delete_nodes(node->right);
-                    }
-                    else if (node->left!=nullptr && node->right==nullptr)
-                    {
-                        delete_nodes(node->left);
-                    }
-                    else
-                    { 
-                        delete_nodes(node->left);
-                        delete_nodes(node->right);
-                    }
+                        {
+                            cout<<"delete node with data: "<< node->data<<endl;
+                            delete(node);
+                            cout<<"the node is deleted"<<endl;
+                        }
+                    
                 }
             }
 
