@@ -15,7 +15,7 @@ class person{
     string name;
     int age;
     person():name(""),age(0){}
-    ~person(){}
+    //~person(){}
     person(string name,int age) : name(name), age(age){}
     friend bool operator==(const person &p1,const person &p2)
     {
@@ -44,7 +44,7 @@ class person{
     
 };
 
-TEST_CASE("int tree2")
+TEST_CASE("int tree")
 {
 
     BinaryTree<int>bt;
@@ -137,7 +137,7 @@ TEST_CASE("person tree")
     {
         CHECK(*it==family.front());
     }
-
+    
 }
 
 TEST_CASE("set<person> tree")
